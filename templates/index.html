@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Placement Tracker</title>
+</head>
+<body>
+
+<h1>Student Placement Tracker</h1>
+
+<a href="/add">
+    <button>Add Company</button>
+</a>
+
+<h2>Placement Applications</h2>
+
+<table border="1">
+    <tr>
+        <th>Company</th>
+        <th>Job Role</th>
+        <th>Package</th>
+        <th>Location</th>
+        <th>Application Date</th>
+        <th>Status</th>
+    </tr>
+
+    {% for company in companies %}
+    <tr>
+        <td>{{ company["company_name"] }}</td>
+        <td>{{ company["job_role"] }}</td>
+        <td>{{ company["package"] }}</td>
+        <td>{{ company["location"] }}</td>
+        <td>{{ company["application_date"] }}</td>
+        <td>{{ company["status"] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
