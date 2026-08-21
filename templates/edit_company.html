@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Company</title>
+</head>
+<body>
+
+<h1>Edit Company</h1>
+
+<form method="POST">
+
+    <label>Company Name:</label>
+    <input type="text" name="company_name"
+           value="{{ company['company_name'] }}" required>
+    <br><br>
+
+    <label>Job Role:</label>
+    <input type="text" name="job_role"
+           value="{{ company['job_role'] }}" required>
+    <br><br>
+
+    <label>Package:</label>
+    <input type="text" name="package"
+           value="{{ company['package'] }}">
+    <br><br>
+
+    <label>Location:</label>
+    <input type="text" name="location"
+           value="{{ company['location'] }}">
+    <br><br>
+
+    <label>Application Date:</label>
+    <input type="date" name="application_date"
+           value="{{ company['application_date'] }}">
+    <br><br>
+
+    <label>Status:</label>
+
+    <select name="status">
+        <option value="Applied">Applied</option>
+        <option value="Test">Online Test</option>
+        <option value="Interview">Interview</option>
+        <option value="Selected">Selected</option>
+        <option value="Rejected">Rejected</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Update Company</button>
+
+</form>
+
+<a href="/">Back to Dashboard</a>
+
+</body>
+</html>
