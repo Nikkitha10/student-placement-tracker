@@ -33,6 +33,15 @@
         <td>{{ company["location"] }}</td>
         <td>{{ company["application_date"] }}</td>
         <td>{{ company["status"] }}</td>
+         <td>
+            <a href="/edit/{{ company['id'] }}">
+                <button type="button">Edit</button>
+            </a>
+
+            <a href="/delete/{{ company['id'] }}">
+                <button type="button">Delete</button>
+            </a>
+        </td>
     </tr>
     {% endfor %}
 
