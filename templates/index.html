@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Student Placement Tracker</title>
 </head>
+
 <body>
 
 <h1>Student Placement Tracker</h1>
@@ -12,9 +12,64 @@
     <button>Add Company</button>
 </a>
 
+<hr>
+
+<h2>Search & Filter</h2>
+
+<form method="GET" action="/">
+
+    <label>Search Company:</label>
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Enter company name"
+        value="{{ search }}"
+    >
+
+    <label>Status:</label>
+
+    <select name="status">
+
+        <option value="">All</option>
+
+        <option value="Applied"
+            {% if status == "Applied" %}selected{% endif %}>
+            Applied
+        </option>
+
+        <option value="Test"
+            {% if status == "Test" %}selected{% endif %}>
+            Online Test
+        </option>
+
+        <option value="Interview"
+            {% if status == "Interview" %}selected{% endif %}>
+            Interview
+        </option>
+
+        <option value="Selected"
+            {% if status == "Selected" %}selected{% endif %}>
+            Selected
+        </option>
+
+        <option value="Rejected"
+            {% if status == "Rejected" %}selected{% endif %}>
+            Rejected
+        </option>
+
+    </select>
+
+    <button type="submit">Search</button>
+
+</form>
+
+<hr>
+
 <h2>Placement Applications</h2>
 
 <table border="1">
+
     <tr>
         <th>Company</th>
         <th>Job Role</th>
@@ -22,17 +77,39 @@
         <th>Location</th>
         <th>Application Date</th>
         <th>Status</th>
+        <th>Action</th>
     </tr>
 
     {% for company in companies %}
+
     <tr>
+
         <td>{{ company["company_name"] }}</td>
+
         <td>{{ company["job_role"] }}</td>
+
         <td>{{ company["package"] }}</td>
+
         <td>{{ company["location"] }}</td>
+
         <td>{{ company["application_date"] }}</td>
+
         <td>{{ company["status"] }}</td>
+
+        <td>
+
+            <a href="/edit/{{ company['id'] }}">
+                <button type="button">Edit</button>
+            </a>
+
+            <a href="/delete/{{ company['id'] }}">
+                <button type="button">Delete</button>
+            </a>
+
+        </td>
+
     </tr>
+
     {% endfor %}
 
 </table>
